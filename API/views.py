@@ -39,7 +39,7 @@ class DFList(APIView):
 
     def get(self, request, format=None):
         TempDF = df.head()
-        JSONdata =TempDF.to_dict('records')
-        print(JSONdata)
-        serializer = DFSerializer(JSONdata, many=True)
+        Dictdata =TempDF.to_dict('records')
+        print(Dictdata)
+        serializer = DFSerializer(Dictdata, many=True)
         return Response(serializer.data)
