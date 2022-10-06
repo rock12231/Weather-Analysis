@@ -43,3 +43,22 @@ class DFList(APIView):
         print(Dictdata)
         serializer = DFSerializer(Dictdata, many=True)
         return Response(serializer.data)
+
+class DFDetail(APIView):
+
+     
+    # def get_object(self, pk):
+    #     TempDF = df.copy()
+    #     try:
+    #         temp =TempDF['Timestamp'] == pk
+    #         return temp
+    #     except temp.DoesNotExist:
+    #         raise Http404
+
+    def get(self, request, pk, format=None):
+        TempDF = df.copy()
+        TempDF = TempDF[TempDF['Timestamp'] == pk]
+        Dictdata =TempDF.to_dict('records')
+        print(Dictdata)
+        serializer = DFSerializer(Dictdata, many=True)
+        return Response(serializer.data)

@@ -13,5 +13,3 @@ class DFSerializer(serializers.Serializer):
     Humidity = serializers.FloatField(required=False)
     Wind = serializers.FloatField(required=False)
     Wind_Direction = serializers.FloatField(required=False)
-
-    
